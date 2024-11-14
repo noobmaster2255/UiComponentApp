@@ -12,7 +12,6 @@ struct ListView: View {
     var body: some View {
         NavigationView {
             List {
-                // Section 1: Text Input/Output
                 Section(header: Text("Text Input/Output")) {
                     ForEach(viewModel.filteredComponents.filter { $0.type == .textInputOutput }) { component in
                         NavigationLink(destination: DetailView(component: component)) {
@@ -21,7 +20,6 @@ struct ListView: View {
                     }
                 }
 
-                // Section 2: Controls
                 Section(header: Text("Controls")) {
                     ForEach(viewModel.filteredComponents.filter { $0.type == .control }) { component in
                         NavigationLink(destination: DetailView(component: component)) {
@@ -30,7 +28,6 @@ struct ListView: View {
                     }
                 }
 
-                // Section 3: Container Views
                 Section(header: Text("Container Views")) {
                     ForEach(viewModel.filteredComponents.filter { $0.type == .containerView }) { component in
                         NavigationLink(destination: DetailView(component: component)) {
@@ -39,7 +36,6 @@ struct ListView: View {
                     }
                 }
 
-                // Section 4: List
                 Section(header: Text("List")) {
                     ForEach(viewModel.filteredComponents.filter { $0.type == .list }) { component in
                         NavigationLink(destination: DetailView(component: component)) {

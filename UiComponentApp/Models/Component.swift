@@ -6,7 +6,6 @@
 //
 import SwiftUI
 
-// Model for the list items
 struct Component: Identifiable {
     let id = UUID()
     let title: String

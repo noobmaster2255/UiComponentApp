@@ -8,13 +8,11 @@
 import SwiftUI
 
 @main
-struct UiComponentAppApp: App {
-    let persistenceController = PersistenceController.shared
-
+struct SwiftUIComponentsDemoApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            ListView()
         }
     }
 }
+

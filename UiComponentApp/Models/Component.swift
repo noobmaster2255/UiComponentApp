@@ -4,15 +4,17 @@
 //
 //  Created by AKHIL SANIL on 2024-11-13.
 //
-
 import SwiftUI
 
-struct Component: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+// Model for the list items
+struct Component: Identifiable {
+    let id = UUID()
+    let title: String
+    let type: ComponentType
+    let systemImageName: String
+    let documentationURL: URL
 }
 
-#Preview {
-    Component()
+enum ComponentType {
+    case textInputOutput, control, containerView, list
 }

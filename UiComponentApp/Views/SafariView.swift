@@ -8,12 +8,19 @@
 import SwiftUI
 import SafariServices
 
-struct SafariView: UIViewControllerRepresentable {
-    let url: URL
+struct SFSafariView: UIViewControllerRepresentable {
+    @Binding var searchURL: URL
 
     func makeUIViewController(context: Context) -> SFSafariViewController {
-        return SFSafariViewController(url: url)
+        let configuration = SFSafariViewController.Configuration()
+        configuration.barCollapsingEnabled = true
+
+        let safariViewController = SFSafariViewController(url: searchURL, configuration: configuration)
+        safariViewController.dismissButtonStyle = .close
+
+        return safariViewController
     }
 
-    func updateUIViewController(_ uiViewController: SFSafariViewController, context: Context) {}
+    func updateUIViewController(_ uiViewController: SFSafariViewController, context: Context) {
+    }
 }

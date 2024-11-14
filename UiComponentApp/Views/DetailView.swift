@@ -8,30 +8,38 @@ import SwiftUI
 
 struct DetailView: View {
     let component: Component
+    @State private var isShowingSafariView = false
+    @State private var searchURL: URL
+
+    init(component: Component) {
+        self.component = component
+        _searchURL = State(initialValue: component.documentationURL)
+    }
 
     var body: some View {
         VStack {
-            Text("Details for \(component.title)")
-                .font(.title)
+            Text(component.title)
+                .font(.largeTitle)
                 .padding()
 
-            Button("Open Documentation") {
-                if let url = URL(string: component.documentationURL.absoluteString) {
-                    UIApplication.shared.open(url)
-                }
+            Button(action: {
+                isShowingSafariView.toggle()
+            }) {
+                Label("Open Documentation", systemImage: "doc.text")
+                    .font(.title2)
             }
-            .padding()
         }
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button(action: {
-                    if let url = URL(string: component.documentationURL.absoluteString) {
-                        UIApplication.shared.open(url)
-                    }
+                    isShowingSafariView.toggle()
                 }) {
                     Image(systemName: "doc.text")
                 }
             }
+        }
+        .sheet(isPresented: $isShowingSafariView) {
+            SFSafariView(searchURL: $searchURL)
         }
     }
 }

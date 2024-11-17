@@ -4,23 +4,39 @@
 //
 //  Created by AKHIL SANIL on 2024-11-13.
 //
+
+
 import SwiftUI
 
 struct DetailView: View {
-    let component: Component
+    @ObservedObject var viewModel: ComponentDetailViewModel
     @State private var isShowingSafariView = false
     @State private var searchURL: URL
-
+    
     init(component: Component) {
-        self.component = component
-        _searchURL = State(initialValue: component.documentationURL)
+        self.viewModel = ComponentDetailViewModel(component: component)
+        _searchURL = State(initialValue: URL(string: "https://developer.apple.com")!)
     }
-
+    
     var body: some View {
-        VStack {
-            Text(component.title)
-                .font(.largeTitle)
-                .padding()
+        VStack(alignment: .leading) {
+            HStack {
+                Text("•")
+                    .font(.title)
+                    .padding(.trailing, 5)
+                Text(viewModel.usageText)
+                    .font(.body)
+            }
+            .padding()
+
+            HStack {
+                Text("•")
+                    .font(.title)
+                    .padding(.trailing, 5) 
+                Text(viewModel.featureText)
+                    .font(.body)
+            }
+            .padding()
 
             Button(action: {
                 isShowingSafariView.toggle()
@@ -28,7 +44,12 @@ struct DetailView: View {
                 Label("Open Documentation", systemImage: "doc.text")
                     .font(.title2)
             }
+            .padding()
+
+            Spacer()
         }
+
+        .navigationTitle(viewModel.title)
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button(action: {
@@ -41,5 +62,13 @@ struct DetailView: View {
         .sheet(isPresented: $isShowingSafariView) {
             SFSafariView(searchURL: $searchURL)
         }
+        .onAppear {
+            if viewModel.title.isEmpty {
+                searchURL = URL(string: "https://developer.apple.com")!
+            } else {
+                searchURL = URL(string: "https://developer.apple.com/documentation/swiftui/\(viewModel.title)")!
+            }
+        }
     }
 }
+

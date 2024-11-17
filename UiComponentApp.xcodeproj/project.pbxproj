@@ -18,6 +18,7 @@
 		CC00B3F22CE598FE00283DFA /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC00B3F12CE598FE00283DFA /* ListView.swift */; };
 		CC00B3F52CE5992600283DFA /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC00B3F42CE5992600283DFA /* DetailView.swift */; };
 		CC00B3F72CE5994000283DFA /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC00B3F62CE5994000283DFA /* SafariView.swift */; };
+		CCF0B8532CE995530027A8F6 /* ComponentDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF0B8522CE995530027A8F6 /* ComponentDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		CC00B3F12CE598FE00283DFA /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		CC00B3F42CE5992600283DFA /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		CC00B3F62CE5994000283DFA /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		CCF0B8522CE995530027A8F6 /* ComponentDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				CC00B3EE2CE5989600283DFA /* ComponentViewModel.swift */,
+				CCF0B8522CE995530027A8F6 /* ComponentDetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 				CC00B3E02CE596F900283DFA /* Persistence.swift in Sources */,
 				CC00B3F72CE5994000283DFA /* SafariView.swift in Sources */,
 				CC00B3F52CE5992600283DFA /* DetailView.swift in Sources */,
+				CCF0B8532CE995530027A8F6 /* ComponentDetailViewModel.swift in Sources */,
 				CC00B3E32CE596F900283DFA /* UiComponentApp.xcdatamodeld in Sources */,
 				CC00B3D92CE596F800283DFA /* ContentView.swift in Sources */,
 				CC00B3F22CE598FE00283DFA /* ListView.swift in Sources */,
